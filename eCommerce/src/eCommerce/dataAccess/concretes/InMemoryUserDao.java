@@ -12,8 +12,8 @@ public class InMemoryUserDao implements UserDao{
 	public InMemoryUserDao() {
 		super();
 		User user1 = new User(1,"Ali", "Yalçın","aliyalcin@gmail.com", "123456", true);
-		User user2 = new User(1,"Zafer", "Çalışkan","zafer@gmail.com", "654321", true);
-		User user3 = new User(1,"Umut", "Doğan","galip@gmail.com", "987654", true);
+		User user2 = new User(1,"Fatih", "Tartar","fatih@gmail.com", "654321", true);
+		User user3 = new User(1,"Yasin", "Taş","yasin@gmail.com", "987654", true);
 		
 		users.add(user1);
 		users.add(user2);
@@ -55,7 +55,7 @@ public class InMemoryUserDao implements UserDao{
 
 	@Override
 	public List<User> getAll() {
-		return null;
+		return users;
 	}
 
 	@Override

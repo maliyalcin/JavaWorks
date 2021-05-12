@@ -20,20 +20,20 @@ public class UserManager implements UserService{
 
 	@Override
 	public void add(User user) {
-		if(userValidate(user)) {
+		
 			userDao.add(user);
-			emailService.send(user.geteMail(), "Kayıt oldunuz.");
-		}
+			System.out.println("Eposta Log : " + user.geteMail());
+			emailService.send(user.geteMail(), "Kayıt başarılı..");
 	}
 	
 	@Override
 	public void add(String email) {
-		if(!email.isEmpty()) {
+		
 			User user = new User();
 			user.seteMail(email);
-			userDao.add(null);
-			emailService.send(email, "Kayıt oldunuz");
-		}
+			userDao.add(user);
+			System.out.println("Eposta Log : " + user.geteMail());
+			emailService.send(email, "Kayıt başarılı.");
 	}
 
 	@Override

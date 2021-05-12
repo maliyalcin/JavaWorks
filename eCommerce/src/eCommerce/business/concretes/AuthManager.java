@@ -1,8 +1,10 @@
 package eCommerce.business.concretes;
 
+
+
 import eCommerce.business.abstracts.AuthService;
 import eCommerce.business.abstracts.UserService;
-import eCommerce.core.EmailService;
+import eCommerce.core.utils.Utils;
 import eCommerce.entities.concretes.LoginDto;
 import eCommerce.entities.concretes.User;
 
@@ -11,6 +13,7 @@ public class AuthManager implements AuthService {
 	private UserService userService;
 
 	public AuthManager(UserService userService) {
+		super();
 		this.userService = userService;
 	}
 
@@ -18,7 +21,8 @@ public class AuthManager implements AuthService {
 	public void register(User user) {
 		if( userValidate(user) 
 				&& passwordValidate(user.getPassword()) 
-				&& !userExists(user.geteMail()))
+				&& !userExists(user.geteMail()) == false
+				&& Utils.checkUserEmail(user.geteMail()))
 		{
 			userService.add(user);
 		}else {

@@ -14,7 +14,7 @@ public class AmazonMailManagerAdapter implements EmailService{
 	
 	@Override
 	public void send(String email, String message) {
-		amazonMailManager
+		amazonMailManager.send(email, message);
 		
 	}
 	
